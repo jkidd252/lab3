@@ -66,7 +66,10 @@ geom_bar()+
 #### Code
 
 ```{r born-country-us}
-# remove this comment and add your code here
+nobel_living_science <- nobel_living_science %>%
+  mutate(
+    born_country_us = ifelse(country == "USA", "USA", "Other")
+  )
 ```
 
 
@@ -79,7 +82,16 @@ geom_bar()+
 #### Code
 
 ```{r facet-bar-plot-redo}
-# remove this comment and add your code here
+nobel_living_science <- nobel_living_science %>%
+  mutate(
+    born_country_us = ifelse(born_country_original == "USA", "USA", "Other")
+  )
+
+ggplot(nobel_living_science,
+       mapping = aes(y = country_us)) +
+
+geom_bar(aes(fill = born_country_us))+
+  facet_grid(cols = vars(category))
 ```
 
 
