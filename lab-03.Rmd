@@ -49,11 +49,10 @@ nobel_living_science <- nobel_living %>%
   filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
 
 ggplot(nobel_living_science,
-       mapping = aes(x = category)) +
+       mapping = aes(y = category)) +
 
-geom_point(aes(colour = country_us)) +
-
-geom_bar()
+geom_bar()+
+  facet_grid(cols = vars(country_us))
 
 ```
 
