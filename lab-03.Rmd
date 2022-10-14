@@ -1,6 +1,6 @@
 ---
 title: "Lab 03 - Nobel laureates"
-author: "Jonathan, Liam , griffin"
+author: "Jonathan, Liam , griffin, micaela"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -18,9 +18,9 @@ nobel <- read_csv("data/nobel.csv")
 
 ### Exercise 1
 
-#### Narrative
-
-*Remove this text and add your answer here.*
+26 variables, 935 columns
+24,310 observations in the data set.
+each row represents a diferent nobel laureate
 
 
 ### Exercise 2
@@ -28,7 +28,7 @@ nobel <- read_csv("data/nobel.csv")
 #### Code
 
 ```{r nobel-living}
-# remove this comment and add your code here
+nobel_living <- filter(nobel, !is.na(country), gender != "org", is.na(died_date)) 
 ```
 
 #### Narrative
